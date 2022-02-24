@@ -74,7 +74,10 @@ function App() {
         <main className="event">
           <div className="event__title">Event Title: {event.TITLE}</div>
           <div className="event__date">
-            Event Date: {new Date(event.TIME_GMT).toLocaleString()}
+            Event Date: {new Date(event.TIME_GMT).toLocaleString()} /{' '}
+            <a href={event.GOOGLE_CAL} target="_blank">
+              Add to Google Calendar
+            </a>
           </div>
           <div className="event__detials">{event.DETAILS}</div>
         </main>
