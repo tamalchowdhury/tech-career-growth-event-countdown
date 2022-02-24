@@ -6,7 +6,7 @@ import Countdown from 'react-countdown'
 
 const event = {
   TITLE: 'How To Have Impactful 1:1 Meetings - With Alex & Rahul',
-  TIME_GMT: '27 Feb 2022 18:00:00 GMT',
+  TIME_GMT: '26 Feb 2022 18:00:00 GMT',
   DETAILS: `Hi, we are Alex and Rahul, 2 tech leads who have ~16 years of experience combined working for top Silicon Valley software companies like Facebook, Pinterest, and Robinhood. This free event is part of a broader tech community where our mission is to lower barriers in tech for all.
 
   We will be talking about one of the most crucial building blocks of a successful tech career: The 1 on 1 meeting. We have had literally thousands of these across our careers, and we have learned that there is a sky high skill ceiling for them. 1:1s are an engine for so many helpful things like building relationships, onboarding, transferring knowledge, resolving disputes, and so much more. If you want to become a top software engineer or really just a top tech worker in general, you absolutely HAVE to master the 1:1 meeting. And that is exactly what we're going to help you do with this session!`,
