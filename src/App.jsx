@@ -110,7 +110,8 @@ function App() {
         </aside>
       </div>
       <footer className="footer">
-        &copy; 2022 Developed by <a href="https://tamalweb.com">Tamal Web</a>
+        &copy; 2022 Developed by{' '}
+        <a href="https://twitter.com/tamalweb">Tamal Web</a>
       </footer>
     </>
   )
