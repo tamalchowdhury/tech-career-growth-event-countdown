@@ -3,6 +3,7 @@ import logo from './img/logo.jpg'
 import './App.css'
 import './style/main.css'
 import Countdown from 'react-countdown'
+import GitHubButton from 'react-github-btn'
 
 const event = {
   TITLE: 'How To Have Impactful 1:1 Meetings - With Alex & Rahul',
@@ -24,6 +25,8 @@ const event = {
 const Completionist = () => <span>This event is currently happening</span>
 
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
+  const dayLabel = days === 1 ? 'Day' : 'Days'
+
   if (completed) {
     // Render a completed state
     return <Completionist />
@@ -31,7 +34,11 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     // Render a countdown
     return (
       <span>
-        {days ? <span>{days} Days : </span> : null}
+        {days ? (
+          <span>
+            {days} {dayLabel} :{' '}
+          </span>
+        ) : null}
         {hours ? <span>{hours} hrs : </span> : null}
         {minutes ? <span>{minutes} min : </span> : null}
         {seconds} Sec
@@ -44,7 +51,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   const timeToNextEvent = Date.parse(event.TIME_GMT)
-  const timer10sec = Date.now() + 60000 * 60 * 24 * 2
+  const timeToTestApp = Date.now() + 60000 * 60 * 24 * 3
 
   return (
     <>
@@ -74,11 +81,20 @@ function App() {
         <main className="event">
           <div className="event__title">Event Title: {event.TITLE}</div>
           <div className="event__date">
-            Event Date: {new Date(event.TIME_GMT).toLocaleString()} /{' '}
+            <strong>Event Date: </strong>
+            {new Date(event.TIME_GMT).toLocaleString('en-US', {
+              timeZoneName: 'short',
+            })}{' '}
+            /{' '}
             <a href={event.GOOGLE_CAL} target="_blank">
               Add to Google Calendar
             </a>
+            <br />
+            <small>
+              <strong>Duration: </strong> ~2 Hours
+            </small>
           </div>
+
           <div className="event__detials">{event.DETAILS}</div>
         </main>
         <aside className="links">
@@ -113,8 +129,19 @@ function App() {
         </aside>
       </div>
       <footer className="footer">
-        &copy; 2022 Developed by{' '}
-        <a href="https://twitter.com/tamalweb">Tamal Web</a>
+        <span>
+          &copy; 2022 Developed by{' '}
+          <a href="https://twitter.com/tamalweb">Tamal Web</a>
+        </span>
+        <GitHubButton
+          href="https://github.com/tamalweb/tech-career-growth-event-countdown"
+          data-color-scheme="no-preference: light; light: light; dark: dark;"
+          data-icon="octicon-star"
+          data-show-count="true"
+          aria-label="Star tamalweb/tech-career-growth-event-countdown on GitHub"
+        >
+          Star
+        </GitHubButton>
       </footer>
     </>
   )

@@ -33,6 +33,12 @@ a {
   color: var(--theme-color);
 }
 
+ul,
+ol {
+  margin-block-start: 10px;
+  margin-inline-start: 20px;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -110,6 +116,10 @@ h1 {
 }
 
 .footer {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
   padding: 10px;
   text-align: center;
   font-size: 0.8rem;
