@@ -1,6 +1,6 @@
 const event = {
   TITLE: "How To Do Amazing Code Reviews - With Alex & Rahul",
-  DATE_TIME: "26 Mar 2022 9:00:00 PST",
+  DATE_TIME: "26 Mar 2022 10:00:00 PST",
   DETAILS: `Hi, we are Alex and Rahul, 2 tech leads who have ~16 years of experience combined working for top Silicon Valley software companies like Facebook, Pinterest, and Robinhood. This free event is part of a broader tech community where our mission is to lower barriers in tech for all.
 
   When done properly, code review is one of the most powerful tools you have access to, both for your own learning and building the necessary influence to become a senior engineer/tech lead. The problem is that a lot of teams and companies don't do it properly. For junior engineers in particular, a good code review culture is vital towards their development, evolving their ability to write scuffed, hacky code to truly scalable production code. Whether you're looking to review others' code more effectively or get better code review on your own code, please join us for this in-depth session!`,
