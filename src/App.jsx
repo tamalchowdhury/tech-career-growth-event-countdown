@@ -78,7 +78,6 @@ function App() {
               <strong>Duration: </strong> ~2 Hours
             </small>
           </div>
-
           <div className="event__detials">{event.DETAILS}</div>
         </main>
         <aside className="links">
