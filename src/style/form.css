@@ -1,0 +1,73 @@
+.form {
+  margin-top: 20px;
+}
+
+.form__header,
+.form__subhead {
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+.form__header {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.form section {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.form label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.form input,
+.form textarea {
+  font-size: 1rem;
+  padding: 15px;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form__toggle_password {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 18px;
+  color: #333;
+  border: 0;
+  background: none;
+}
+
+.form__optin_title {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.form__optin_text {
+  font-size: 0.8rem;
+}
+
+.form__submit {
+  cursor: pointer;
+  width: 100%;
+  background: var(--theme-color);
+  color: #fff;
+  font-weight: 300;
+  border: 0;
+  padding: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 25px;
+}
+
+.form__footer {
+  font-size: 0.7rem;
+  text-align: center;
+}
