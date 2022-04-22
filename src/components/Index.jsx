@@ -11,7 +11,8 @@ import Dashboard from "./Dashboard"
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app"
-import { getDatabase } from "firebase/database"
+import "firebase/firestore"
+import "firebase/auth"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -26,9 +27,51 @@ const firebaseConfig = {
   appId: "1:149216901118:web:b7ae5d551c85e16afef2af",
 }
 
+import { useAuthState } from "react-firebase-hooks/auth"
+import { useCollectionData } from "react-firebase-hooks/firestore"
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import { getFirestore } from "firebase/firestore"
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
-const database = getDatabase(app)
+const auth = getAuth(app)
+const db = getFirestore(app)
+
+function SignIn() {
+  const signInWithGoogle = () => {
+    const provider = new GoogleAuthProvider()
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result)
+        const token = credential.accessToken
+        // The signed-in user info.
+
+        const { displayName, email, photoURL } = result.user
+        console.log(displayName, email, photoURL)
+        // ...
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code
+        const errorMessage = error.message
+        // The email of the user's account used.
+        const email = error.email
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error)
+        // ...
+      })
+  }
+
+  return (
+    <>
+      <h2>Login</h2>
+      <p>You must be logged in to access the Dashboard</p>
+      <button onClick={signInWithGoogle}>Sign in with Google</button>
+    </>
+  )
+}
 
 function Index() {
   const [count, setCount] = useState(0)
@@ -53,13 +96,15 @@ function Index() {
         {/* Render the routes */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<SignIn />} />
+          <Route path="/dashboard" element={<Dashboard auth={auth} />} />
         </Routes>
       </div>
       <footer className="footer">
         <span>
           &copy; 2022 Developed by{" "}
-          <a href="https://twitter.com/tamalweb">Tamal Web</a>
+          <a href="https://twitter.com/tamalweb">Tamal Web</a>{" "}
+          <Link to="/dashboard">Dashboard</Link>
         </span>
         <GitHubButton
           href="https://github.com/tamalweb/tech-career-growth-event-countdown"

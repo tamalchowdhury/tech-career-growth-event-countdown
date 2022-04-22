@@ -1,11 +1,25 @@
+import { Link } from "react-router-dom"
 import "../style/form.css"
+import { useAuthState } from "react-firebase-hooks/auth"
 
-export default function Dashboard(props) {
+export default function Dashboard({ auth }) {
   return (
     <div>
       <h2>Dashboard</h2>
       <p>
-        If you are not Alex or Rahul then please don't use this form. Thanks 😁
+        {auth.currentUser ? (
+          <>
+            <span>Hello {auth?.currentUser?.displayName}</span> -
+            <Link to="/" onClick={auth.signOut()}>
+              Logout
+            </Link>
+          </>
+        ) : (
+          <span>
+            If you are not Alex or Rahul then please don't use this form. Thanks
+            😁
+          </span>
+        )}
       </p>
       <div className="form">
         <form>
